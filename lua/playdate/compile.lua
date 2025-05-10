@@ -83,7 +83,7 @@ function M._run(out)
 	end
 
 	local playdate_simulator
-	if vim.fn.has("mac") then
+	if vim.fn.has("mac") == 1 then
 		playdate_simulator = vim.fs.joinpath(Config.playdate_sdk_path,
 			"/bin/Playdate Simulator.app/Contents/MacOS/Playdate Simulator")
 	else
