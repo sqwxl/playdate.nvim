@@ -3,6 +3,7 @@ local Util = require "playdate.util"
 
 local M = {
 	term = { buf = nil, win = nil, chan = nil },
+	playdate_simulator_pid = nil
 }
 
 function M.open_console()
@@ -95,7 +96,13 @@ function M._run(out)
 		return
 	end
 
-	vim.system({ playdate_simulator, out }, {
+	-- If Simulator is already running, close it
+	if M.playdate_simulator_pid ~= nil then
+		vim.system({ "kill", "-QUIT", tostring(M.playdate_simulator_pid) }):wait()
+		M.playdate_simulator_pid = nil
+	end
+
+	M.playdate_simulator_pid = vim.system({ playdate_simulator, out }, {
 		text = true,
 		stdout = false,
 		stderr = false,
@@ -103,7 +110,7 @@ function M._run(out)
 		if out.code ~= 0 then
 			Util.notify("Playdate Simulator exited with error code: " .. out.code, vim.log.levels.ERROR)
 		end
-	end)
+	end).pid
 end
 
 ---@param src string?

@@ -83,7 +83,13 @@ When loaded, the plugin looks for a [`pdxinfo`](https://sdk.play.date/2.6.2/Insi
 }
 ```
 
+## FAQ
+
+### Why is the Playdate Simulator display crash message when recompiling?
+
+You may need to disable the crash report prompt in your Playdate Simulator settings (Settings > General > Privacy > Send Crash Reports).
+
 ## See also
 
-- https://stephanmax.com/playdate-development-neovim/
-- https://devforum.play.date/t/neovim-central-thread/7953
+- <https://stephanmax.com/playdate-development-neovim/>
+- <https://devforum.play.date/t/neovim-central-thread/7953>
