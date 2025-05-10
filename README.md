@@ -85,7 +85,7 @@ When loaded, the plugin looks for a [`pdxinfo`](https://sdk.play.date/2.6.2/Insi
 
 ## FAQ
 
-### Why is the Playdate Simulator display crash message when recompiling?
+### Why is the Playdate Simulator displaying crash messages when recompiling?
 
 You may need to disable the crash report prompt in your Playdate Simulator settings (Settings > General > Privacy > Send Crash Reports).
 
